@@ -39,7 +39,7 @@ app.post('/api/product/:id/insertdisplayItem', async (req, res) => {
     .catch(() => { res.sendStatus(500); });
 });
 
-// READ
+// READ find entries to be viewed
 app.get('/api/products/:id', async (req, res) => {
   await Model.findOne({ where: { id: req.params.id } })
     .then((data) => res.send(data))
