@@ -47,7 +47,7 @@ POST /api/product/:id/insertdisplayItem
 
 #### Response:
 201 Created
---------------------------------------
+
 
 ## Get a list of products to be displayed from Database -
 #### Request:
@@ -57,7 +57,7 @@ GET /api/products/:id
 HTTP/1.1 200 OK
 
 [ insert get object here ]
--------------------------------------
+
 
 ## Edit an existing entry
 #### Request:
@@ -66,7 +66,7 @@ PUT /api/product/:id/updatedisplayItem
 #### Response:
 HTTP/1.1 200 OK
 {edited response object}
---------------------------------------
+
 
 ## remove an entry
 #### Request:
