@@ -37,40 +37,40 @@ npm install -g webpack
 npm install
 ```
 
-## CRUD API
+# CRUD API
 The CRUD API to the display service app is described below.
 
 ## Add a new product to the page -
-# Request:
+#### Request:
 
 POST /api/product/:id/insertdisplayItem
 
-# Response:
+#### Response:
 201 Created
 --------------------------------------
 
 ## Get a list of products to be displayed from Database -
-# Request:
+#### Request:
 GET /api/products/:id
 
-## Response:
+#### Response:
 HTTP/1.1 200 OK
 
 [ insert get object here ]
 -------------------------------------
 
 ## Edit an existing entry
-# Request:
+#### Request:
 PUT /api/product/:id/updatedisplayItem
 
-## Response:
+#### Response:
 HTTP/1.1 200 OK
 {edited response object}
 --------------------------------------
 
 ## remove an entry
-# Request:
+#### Request:
 DELETE /api/product/:id/deletedisplayItem
 
-# Response:
+#### Response:
 HTTP/1.1 204 No Content
