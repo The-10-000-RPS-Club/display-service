@@ -38,7 +38,7 @@ npm install
 ```
 
 # CRUD API
-The CRUD API to the display service app is described below.
+The CRUD API is described below.
 
 ## Add a new product to the page -
 #### Request:
@@ -46,7 +46,7 @@ The CRUD API to the display service app is described below.
 POST /api/product/:id/insertdisplayItem
 
 #### Response:
-201 Created
+Status: 201 Created
 
 
 ## Get a list of products to be displayed from Database -
@@ -54,23 +54,50 @@ POST /api/product/:id/insertdisplayItem
 GET /api/products/:id
 
 #### Response:
-HTTP/1.1 200 OK
+Status: 200 OK
 
-[ insert get object here ]
+{
+  id: 0,
+  product_name: 'shoes',
+  rating: 2.4,
+  ratingsAmt: 45,
+  price: '$45.99',
+  color: 'red, blue,green',
+  description: 'a pair of shoes',
+  image: 'URL',
+  carousel: '',
+  clothing_sizes: '',
+  count: 0,
+  show: false,
+}
 
 
 ## Edit an existing entry
 #### Request:
-PUT /api/product/:id/updatedisplayItem
+PUT /api/product/:id
 
 #### Response:
-HTTP/1.1 200 OK
-{edited response object}
+Status: 200 OK
+{
+  id: 0,
+  product_name: 'shoes',
+  rating: 2.4,
+  ratingsAmt: 45,
+  price: '$45.99',
+  color: 'red, blue,green',
+  description: 'a pair of shoes',
+  image: 'URL',
+  carousel: '',
+  clothing_sizes: '',
+  count: 0,
+  show: false,
+}
 
 
 ## remove an entry
 #### Request:
-DELETE /api/product/:id/deletedisplayItem
+DELETE /api/product/:id
 
 #### Response:
-HTTP/1.1 204 No Content
+Status: 204 No Content
+{removed product}
