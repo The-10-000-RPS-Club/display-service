@@ -26,7 +26,7 @@ app.get('/api/products/:id', async (req, res) => {
   // await Model.findOne({ where: { id: req.params.id } })
   //   .then((data) => res.send(data))
   //   .catch(() => { res.sendStatus(500); });
-   await mysqlServer.query('select * from products when id=?;')
+   await mysqlServer.query('select * from products when id=?;');
 
 });
 
