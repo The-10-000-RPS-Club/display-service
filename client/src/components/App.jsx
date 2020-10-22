@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData(67);
+    this.getData(Math.ceil(Math.random() * 10000000));
   }
 
   getData(id) {
