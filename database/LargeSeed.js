@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-loop-func */
 const faker = require('faker');
 const fs = require('fs');
@@ -13,16 +14,18 @@ for (counter; counter < entries; counter += 1) {
   }
   const random1 = Math.ceil(Math.random() * 993);
   const randomWithZeros = (number) => {
-    const plusZeros = `000${number}`;
+    const plusZeros = `0000${number}`;
     let result;
     if (plusZeros.length === 4) {
       result = plusZeros;
     } else if (plusZeros.length === 5) {
-      result = plusZeros.substring(1);
+      result = plusZeros.substring(0);
     } else if (plusZeros.length === 6) {
-      result = plusZeros.substring(2);
+      result = plusZeros.substring(1);
     } else if (plusZeros.length === 7) {
-      result = plusZeros.substring(3);
+      result = plusZeros.substring(2);
+    } else if (plusZeros.length === 8) {
+      result = plusZeros.substring(2);
     }
     return result;
   };
@@ -33,8 +36,8 @@ for (counter; counter < entries; counter += 1) {
   const rating = Math.ceil(Math.random() * 5);
   const ratingsAmt = Math.floor(Math.random() * 1000);
   const color = faker.commerce.color();
-  const image = `https://sdc-images-display.s3-us-west-2.amazonaws.com/${randomWithZeros(counter + 1)}.jpg`;
-  const carousel = `https://sdc-images-display.s3-us-west-2.amazonaws.com/${randomWithZeros(counter + 1)}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 3) + 2}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 3) + 3}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 3) + 4}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 3) + 5}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 3) + 6}.jpg, `;
+  const image = `https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 1}.jpg`;
+  const carousel = `https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 1}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 2}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 3}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 4}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 5}.jpg, https://sdc-images-display.s3-us-west-2.amazonaws.com/${imageSelector.substring(0, 4) + 6}.jpg, `;
   const picker = () => {
     let count = 0;
     let pants = '';
@@ -60,3 +63,14 @@ for (counter; counter < entries; counter += 1) {
 }
 
 file.end();
+
+// if seeding for arango
+
+//  if (counter === 0) {
+//   file.write('id, productName, price, rating, ratingsAmt, color, image, carousel, picked, description \n');
+// }
+//  file.write(`${counter}|${productName}|${price}|${rating}|${ratingsAmt}|${color}|${image}|${carousel}|${picked}|${description}, \n`);
+
+// mysql
+
+// file.write(`${counter}|${productName}|${price}|${rating}|${ratingsAmt}|${color}|${image}|${carousel}|${picked}|${description}| xxxx`);

@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
-const Model = require('../database/model.js');
+// const Model = require('../database/model.js');
+const mysqlServer = require('../database/mysqlserver.js');
 
 const PORT = 3002;
 
@@ -14,16 +15,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   next();
+// });
 
 // READ
 app.get('/api/products/:id', async (req, res) => {
-  await Model.findOne({ where: { id: req.params.id } })
-    .then((data) => res.send(data))
-    .catch(() => { res.sendStatus(500); });
+  // console.log(req);
+  await mysqlServer.query(`select * from products where id=999800;`, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else {
+      res.send(data[0]);
+    }
+  });
 });
 
 app.listen(PORT, () => {
