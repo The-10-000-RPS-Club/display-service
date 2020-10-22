@@ -27,7 +27,7 @@ class App extends React.Component {
       description: '',
       image: '',
       carousel: '',
-      clothing_sizes: '',
+      picked: '',
       count: 0,
       show: false,
     };
@@ -98,15 +98,15 @@ class App extends React.Component {
           <Wrapper>
             <Name name={product.product_name} />
             <Star ratings={product.rating} id={product.id} ratingsAmt={product.ratingsAmt} />
-            <Price price={product.price} />
-            <Color color={product.color} price={product.price} />
-            <Size size={product.clothing_sizes} />
+            <Price price={product.price.toString()} />
+            <Color color={product.color} price={product.price.toString()} />
+            <Size size={product.picked} />
             <Quantity
               incrementCount={this.incrementCount}
               decrementCount={this.decrementCount}
               count={product.count}
             />
-            <Buttons price={product.price} count={product.count} />
+            <Buttons price={product.price.toString()} count={product.count} />
           </Wrapper>
           <Carousel carousel={product.carousel} setImage={this.setImage} />
           <Image>
