@@ -19,7 +19,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       id: 0,
-      product_name: '',
+      products: '',
       rating: 0,
       ratingsAmt: 0,
       price: '',
@@ -40,7 +40,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData(Math.ceil(Math.random() * 10000000));
+    let location = window.location.href.match(/products\/(.+)/) || 1;
+    // look for products and match all things after (aka)
+    this.getData(location[1]);
   }
 
   getData(id) {
@@ -96,7 +98,7 @@ class App extends React.Component {
         <Header />
         <Flex>
           <Wrapper>
-            <Name name={product.product_name} />
+            <Name name={product.products} />
             <Star ratings={product.rating} id={product.id} ratingsAmt={product.ratingsAmt} />
             <Price price={product.price.toString()} />
             <Color color={product.color} price={product.price.toString()} />
