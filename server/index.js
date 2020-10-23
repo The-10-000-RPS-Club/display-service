@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 require('newrelic');
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const path = require('path');
-const compression = require('compression');
+// const compression = require('compression');
 // const Model = require('../database/model.js');
 const mysqlServer = require('../database/mysqlserver.js');
 
