@@ -20,7 +20,7 @@ const mysql = require('mysql');
 // module.exports = connection;
 
 const pool = mysql.createPool({
-  host: 'ec2-35-160-57-72.us-west-2.compute.amazonaws.com',
+  host: '35.160.57.72',
   user: 'smith',
   password: 'H4CKR34CT0R!',
   database: 'display',
